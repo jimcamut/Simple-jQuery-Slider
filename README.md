@@ -12,7 +12,10 @@ Markup:
 </div>
 ```
 Now you can add some data attributes to overide the default settings:
-<br />Ex: <div class="slider" data-dots="false">
+<br/>Ex:
+```html
+<div class="slider" data-dots="false">
+```
 
 Options:
 
