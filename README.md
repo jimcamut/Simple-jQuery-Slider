@@ -15,7 +15,9 @@ Now you can add some data attributes to overide the default settings:
 Ex: <div class="slider" data-dots="false">
 
 Options:
+
 data-arrows: boolean (default true)
+
 data-dots: boolean (default true)
 data-auto: boolean (default true)
 data-interval: 6000 (milliseconds - delay between slide transitions)
