@@ -2,6 +2,7 @@
 A simple, responsive jQuery slider.
 
 Markup:
+```html
 <div class="slider">
     <ul>
         <li>
@@ -9,7 +10,7 @@ Markup:
         </li>
     </ul>
 </div>
-
+```
 Now you can add some data attributes to overide the default settings:
 Ex: <div class="slider" data-dots="false">
 
