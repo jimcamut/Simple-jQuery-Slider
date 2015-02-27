@@ -9,13 +9,16 @@ jQuery(document).ready(function ($) {
             height = slider.find("li:eq(0)").outerHeight(), // Not needed, but here for future use
             count = 0; // Generic counter so we can keep track of slides
 
+
+
+
         // Setup:
         var config = {
             arrows: true,
             dots: true,
             auto: true, // Make the slides cycle on their own
             interval: 6000, // the time between slides
-            speed: 0.5 // number of seconds that the slider transitions should be
+            speed: 1 // number of seconds that the slider transitions should be
         };
 
         // Override the default config if the data attributes are set
@@ -24,6 +27,7 @@ jQuery(document).ready(function ($) {
                 config[key] = slider.data(key);
             }
         }
+
 
 
         function placeSlider(width, speed) {
@@ -43,18 +47,25 @@ jQuery(document).ready(function ($) {
             });
         }
 
-        function placeSlides(width) {
-            slider.find("ul>li").each(function (j, elj) {
-                $(this).css("left", j * width);
+        function placeSlides(width, speed) {
+            if (speed === undefined) {speed = config.speed;}
+            slider.find("li").each(function (j, elj) {
+                $(this).css({
+                    "left": j * width,
+                    "-webkit-transition":  speed + "s ease",
+                    "-moz-transition":   speed + "s ease",
+                    "-ms-transition":  speed + "s ease",
+                    "-o-transition":   speed + "s ease",
+                    "transition":   speed + "s ease"
+                });
             });
         }
         placeSlides(width);
-        placeSlider(width);
 
 
-        $(window).on("resize", function() {
+        $(window).bind("resize load", function() {
             width = slider.outerWidth();
-            placeSlides(width);
+            placeSlides(width, 0);
             placeSlider(width, 0);
         });
 
@@ -146,6 +157,16 @@ jQuery(document).ready(function ($) {
             setTimeout(function () {
                 slideAuto.resume();
             }, 1000);
+        });
+
+
+
+        // Bind mouse hover to pause and resume slider
+        slider.bind("mouseover", function(){
+            slideAuto.pause();
+        });
+        slider.bind("mouseleave", function(){
+            slideAuto.resume();
         });
 
 
