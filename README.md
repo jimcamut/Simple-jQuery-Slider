@@ -6,7 +6,13 @@ Markup:
 <div class="slider">
     <ul>
         <li>
-            Add any HTML onto the list items - these are your slides
+            Slide 1 - Add any HTML onto the list items - these are your slides
+        </li>
+        <li>
+            Slide 2
+        </li>
+        <li>
+            Etc...
         </li>
     </ul>
 </div>
