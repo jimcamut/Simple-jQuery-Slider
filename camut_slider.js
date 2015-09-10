@@ -72,7 +72,7 @@
             		if ($(sl[i]).outerHeight() > h) h = $(sl[i]).outerHeight();
             	}
             	setTimeout( function () {
-            		$(".slider").css("height", h + 30 );
+            		$(".slider").css("height", h);
             		$(window).resize(); // call this to fix rendering bug
             	}, 10);
             }
