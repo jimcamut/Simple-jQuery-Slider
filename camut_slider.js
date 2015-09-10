@@ -1,3 +1,9 @@
+/*
+	@author: Jim Camut
+	Github: https://github.com/jimcamut/Simple-jQuery-Slider
+*/
+
+
 (function($) {
 
     $.fn.camutSlider = function() {
