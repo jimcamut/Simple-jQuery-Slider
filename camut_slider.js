@@ -14,7 +14,7 @@
             var slider = $(el), // this is the element
                 numSlides = slider.find("li").length, // number of slides
                 width = slider.outerWidth(),
-                height = slider.find("li:eq(0)").outerHeight(), // Not needed, but here for future use
+                height = slider.find(">li:eq(0)").outerHeight(), // Not needed, but here for future use
                 count = 0; // Generic counter so we can keep track of slides
 
             // Setup:
@@ -64,13 +64,32 @@
                     });
                 });
             }
+
+            function addHeight() {
+            	var sl = $(".slides > li");
+            	var h = 0;
+            	for (var i = 0; i < sl.length; i++) {
+            		if ($(sl[i]).outerHeight() > h) h = $(sl[i]).outerHeight();
+            	}
+            	setTimeout( function () {
+            		$(".slider").css("height", h + 30 );
+            		$(window).resize(); // call this to fix rendering bug
+            	}, 10);
+            }
+
+            /* Functions at Load */
             placeSlides(width);
+            $(el).addClass("ready");
+            $(el).find(">ul").addClass("slides");
+            addHeight();
+
 
 
             $(window).bind("resize load", function() {
                 width = slider.outerWidth();
                 placeSlides(width, 0);
                 placeSlider(width, 0);
+                addHeight();
             });
 
             // Make the first slider have an active class
