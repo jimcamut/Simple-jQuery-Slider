@@ -4,7 +4,7 @@ A simple, responsive jQuery slider.
 Markup:
 ```html
 <div class="slider">
-    <ul>
+    <ul class="slides">
         <li>
             Slide 1 - Add any HTML onto the list items - these are your slides
         </li>
